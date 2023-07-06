@@ -1,38 +1,74 @@
-# create-svelte
+# Tauri SvelteKit Admin Template
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This repository contains a starter template for building Tauri apps using SvelteKit with Tailwind CSS.
 
-## Creating a project
+## How to use this template
 
-If you're seeing this, you've probably already done this step. Congrats!
+To use this template, run the following command:
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+```
+npx degit deid84/rusm <target-directory>
 
-# create a new project in my-app
-npm create svelte@latest my-app
 ```
 
-## Developing
+This will clone the template repository and copy the project to a new directory called `<target-directory>`.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Prerequisites
 
-```bash
+Before you can use this template, you will need to install the following dependencies:
+
+-   [Node.js](https://nodejs.org/)
+-   [Rust & OS Dev Tools](https://tauri.app/v1/guides/getting-started/prerequisites)
+
+All the other dependencies are already in `package.json` so they will be automatically installed during next step.
+
+## Getting started
+
+1.  Change into the `target-directory`:
+
+```
+cd <target-directory>
+
+```
+
+2.  Install the dependencies:
+
+```
+npm install
+
+```
+
+3.  Start the development server:
+
+```
+npm run tauri dev
+
+```
+
+or start dev server for browser
+
+```
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
 
-To create a production version of your app:
+This will start the development server and open a new window. The app will automatically reload whenever you make changes to the source code.
 
-```bash
+## Building for production
+
+To build the app for production, run the following command:
+
+```
 npm run build
+
 ```
 
-You can preview the production build with `npm run preview`.
+This will create a production build of the app in the `build` directory.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Further reading
+
+-   [Tauri guides](https://tauri.app/v1/guides/)
+-   [Tauri documentation - Quick Start with SvelteKit](https://tauri.app/v1/guides/getting-started/setup/sveltekit)
+-   [Svelte documentation](https://svelte.dev/docs)
+-   [SvelteKit documentation](https://kit.svelte.dev)

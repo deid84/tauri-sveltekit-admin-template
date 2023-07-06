@@ -57,10 +57,11 @@
 		"windows": [
 			{
 				"fullscreen": false,
+				"center": true,
+				"width": 1280,
 				"height": 800,
 				"resizable": true,
-				"title": "Rust Serial Monitor",
-				"width": 1280
+				"title": "Rust Serial Monitor"
 			}
 		]
 	}

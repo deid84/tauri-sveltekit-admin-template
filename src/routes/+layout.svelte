@@ -1,21 +1,74 @@
 <script lang="ts">
 	import '../app.css';
-	import Sidebar from '$lib/components/layout/sidebar.svelte';
+	//import '$lib/css/style.css';
+	import { fade } from 'svelte/transition';
+	import Header from '$lib/components/layout/Header.svelte';
+	import Sidebar from '$lib/components/layout/Sidebar.svelte';
+	import ScrollToTop from '$lib/components/layout/ScrollToTop.svelte';
+
+	let navOpen: boolean = false;
+	let bg_colors = 'dark:bg-gray-900 bg-white';
+
+	function sidebarHandler() {
+		navOpen = !navOpen;
+	}
+
+	function handleNavWithKey(e: any) {
+		console.log(e.code);
+		if (e.code === 'F2') {
+			navOpen = !navOpen;
+		}
+	}
 </script>
 
-<!-- scroll to top button -->
-<div class="fixed bottom-6 z-50 right-6">
-	<button type="button" class="btn btn-outline-primary animate-pulse rounded-full bg-[#fafafa] p-2 dark:bg-[#060818] dark:hover:bg-primary">
-		<svg width="24" height="24" class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M12 20.75C12.4142 20.75 12.75 20.4142 12.75 20L12.75 10.75L11.25 10.75L11.25 20C11.25 20.4142 11.5858 20.75 12 20.75Z" fill="currentColor"></path>
-			<path d="M6.00002 10.75C5.69667 10.75 5.4232 10.5673 5.30711 10.287C5.19103 10.0068 5.25519 9.68417 5.46969 9.46967L11.4697 3.46967C11.6103 3.32902 11.8011 3.25 12 3.25C12.1989 3.25 12.3897 3.32902 12.5304 3.46967L18.5304 9.46967C18.7449 9.68417 18.809 10.0068 18.6929 10.287C18.5768 10.5673 18.3034 10.75 18 10.75L6.00002 10.75Z" fill="currentColor"></path>
-		</svg>
-	</button>
+<div class={bg_colors}>
+	<div class="flex flex-nowrap">
+		<ScrollToTop />
+		<!-- Sidebar starts -->
+		<div
+			class="{navOpen
+				? '-left-0 sm:-left-80 md:w-0 border-none'
+				: '-left-80 sm:-left-0 w-80 border-r'} z-40 fixed h-screen top-0 bg-gray-900 shadow flex-col justify-between ease-out delay-15 duration-200 flex sm:relative border-gray-700"
+		>
+			{#if navOpen}
+				<button
+					transition:fade={{ delay: 0, duration: 250 }}
+					aria-label="toggle sidebar"
+					id="openSideBar"
+					class="md:hidden h-10 w-10 bg-gray-900 absolute right-0 mt-3 -mr-10 flex items-center shadow
+								 justify-center cursor-pointer focus:outline-none rounded-tr rounded-br border-t border-r border-b border-gray-700"
+					on:click={() => sidebarHandler()}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-adjustments"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="#FFFFFF"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" />
+						<line x1="18" y1="6" x2="6" y2="18" />
+						<line x1="6" y1="6" x2="18" y2="18" />
+					</svg>
+				</button>
+			{/if}
+			<Sidebar />
+		</div>
+		<!-- Sidebar ends -->
+
+		<!-- Body starts -->
+		<div class="w-screen h-screen flex flex-col sm:overflow-y-auto">
+			<Header on:toggleSidebar={sidebarHandler} />
+			<slot />
+		</div>
+		<!-- Body ends -->
+	</div>
 </div>
 
-<!-- main container -->
-<div class="main-container min-h-screen text-black dark:text-white-dark navbar-sticky">
-	<!-- sidebar section -->
-	<Sidebar />
-	<slot />
-</div>
+<!-- Use keyboard to handle the sidenav -->
+<svelte:window on:keydown={handleNavWithKey} />

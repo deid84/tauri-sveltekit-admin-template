@@ -1,8 +1,8 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import ThemeSwitch from './Header/ThemeSwitch.svelte';
-	import FullScreen from './Header//FullScreen.svelte';
-	import Translate from './Header//Translate.svelte';
+	// import FullScreen from './header/FullScreen.svelte';
+	import Translate from './header/Translate.svelte';
+	import ThemeSwitch from './header/ThemeSwitch.svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -45,9 +45,9 @@
 		<div class="flex-none">
 			<ThemeSwitch />
 		</div>
-		<div class="flex-none">
+		<!-- <div class="flex-none">
 			<FullScreen />
-		</div>
+		</div> -->
 		<div class="flex-none">
 			<Translate />
 		</div>

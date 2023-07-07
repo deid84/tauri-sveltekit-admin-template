@@ -1,10 +1,10 @@
 <script lang="ts">
     import '../app.css';
-    //import '$lib/css/style.css';
     import { fade } from 'svelte/transition';
     import Header from '$lib/components/layout/Header.svelte';
     import Sidebar from '$lib/components/layout/Sidebar.svelte';
     import ScrollToTop from '$lib/components/layout/ScrollToTop.svelte';
+    import Footer from '$lib/components/layout/Footer.svelte';
 
     let navOpen: boolean = false;
     let bg_colors = 'dark:bg-slate-950 bg-white';
@@ -70,6 +70,7 @@
             <slot />
         </div>
         <!-- Body ends -->
+        <Footer />
     </div>
 </div>
 

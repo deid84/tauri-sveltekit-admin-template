@@ -22,8 +22,6 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo

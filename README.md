@@ -52,7 +52,6 @@ npm run dev
 
 ```
 
-
 This will start the development server and open a new window. The app will automatically reload whenever you make changes to the source code.
 
 ## Building for production

@@ -61,7 +61,7 @@
                 "width": 1280,
                 "height": 800,
                 "resizable": true,
-                "title": "Rust Serial Monitor"
+                "title": "Tauri SvelteKit Admin Template"
             }
         ]
     }

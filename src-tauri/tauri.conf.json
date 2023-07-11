@@ -59,7 +59,9 @@
                 "fullscreen": false,
                 "center": true,
                 "width": 1280,
-                "height": 800,
+                "height": 700,
+                "minWidth": 800,
+                "minHeight": 600,
                 "resizable": true,
                 "title": "Tauri SvelteKit Admin Template"
             }

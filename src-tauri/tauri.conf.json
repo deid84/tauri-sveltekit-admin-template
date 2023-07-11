@@ -8,7 +8,7 @@
         "withGlobalTauri": false
     },
     "package": {
-        "productName": "rusm",
+        "productName": "tauri-sveltekit-admin-template",
         "version": "0.1.0"
     },
     "tauri": {
@@ -30,7 +30,7 @@
                 "icons/icon.icns",
                 "icons/icon.ico"
             ],
-            "identifier": "com.rusm.dev",
+            "identifier": "com.tauri-sveltekit-admin-template.dev",
             "longDescription": "",
             "macOS": {
                 "entitlements": null,

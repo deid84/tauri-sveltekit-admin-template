@@ -7,7 +7,7 @@ This repository contains a starter template for building Tauri apps using Svelte
 To use this template, run the following command:
 
 ```
-npx degit deid84/rusm <target-directory>
+npx degit deid84/tauri-sveltekit-admin-template <target-directory>
 
 ```
 
